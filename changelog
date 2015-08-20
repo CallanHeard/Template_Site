@@ -1,8 +1,12 @@
 /*
 ** Change Log for Template Site
 **
-** Version:	0.2.0
+** Version:	0.2.1
 */
+
+20.08.15 11:20:
+Minor Change to Config File
+- Update to notify that filename must not be changed
 
 20.08.15 10:20:
 Directory Structure Created
