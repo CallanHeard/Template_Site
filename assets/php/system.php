@@ -9,6 +9,7 @@ $config	= array(); //Global array for storing config settings
 
 loadErrors(); //Prepare global errors array for use
 loadConfig(); //Read contents of config settings into system
+print_r($config);
 
 //Function for Preparing Global Array of Error Messages
 function loadErrors() {		
@@ -30,28 +31,33 @@ function loadConfig() {
 	if ($file) {
 		
 		$commentFlag = false; //Flag for signalling reading of comments
-
+		
 		//Read each line of file
 		while (($line = fgets($file)) !== false) {
-			
-			//If this line is not commented
-			if (!beginningOfComment($line) && $commentFlag == false ) {
-				$config[getMapping('key', $line)] = getMapping('value', $line); //Add config setting to global array
-			}
-			//Else handle comments
-			else {
-				
-				//If this line ends the comment
-				if (endOfComment($line)) {
-					$commentFlag = false; //Reset comment flag
+	
+			//Ignore Newlines
+			if ($line !== "\r\n") {
+		
+				//If this line is not commented
+				if (!beginningOfComment($line) && $commentFlag == false ) {
+					$config[getMapping('key', $line)] = getMapping('value', $line); //Add config setting to global array
 				}
-				//Else comment does not end here
+				//Else handle comments
 				else {
-					$commentFlag = true; //So continue flag
+					
+					//If this line ends the comment
+					if (endOfComment($line)) {
+						$commentFlag = false; //Reset comment flag
+					}
+					//Else comment does not end here
+					else {
+						$commentFlag = true; //So continue flag
+					}
+					
 				}
-				
+
 			}
-			
+				
 		}
 
 		fclose($file); //Close file opened for reading
