@@ -1,8 +1,13 @@
 /*
 ** Change Log for Template Site
 **
-** Version:	0.1.0
+** Version:	0.2.0
 */
+
+20.08.15 10:20:
+Directory Structure Created
+- 'assets' folder with appropriate subdirectories for site files
+- config file created with initial default settings
 
 20.08.15 10:00:
 Project Started
