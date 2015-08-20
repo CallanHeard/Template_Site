@@ -1,8 +1,13 @@
 /*
 ** Change Log for Template Site
 **
-** Version:	0.3.1
+** Version:	0.3.4
 */
+
+20.08.15 12:50:
+Config File Comments Now Handled
+- Comments are ignored based on the opening and closing comment operators
+- Also minor update to 'readme' to include system rules
 
 20.08.15 11:20:
 Minor Change to Config File
@@ -10,15 +15,15 @@ Minor Change to Config File
 
 20.08.15 11:00:
 System Functionality Begun
-- system.php file created with basic errors and skeleton code for reading config file
+- 'system.php' file created with basic errors and skeleton code for reading 'config' file
 
 20.08.15 10:20:
 Directory Structure Created
 - 'assets' folder with appropriate subdirectories for site files
-- config file created with initial default settings
+- 'config' file created with initial default settings
 
 20.08.15 10:00:
 Project Started
 - GitHub Repo created (with accompanying files)
-- readme file created
-- changelog (me) created
+- 'readme' file created
+- 'changelog' (me) created

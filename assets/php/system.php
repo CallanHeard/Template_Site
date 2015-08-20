@@ -29,39 +29,65 @@ function loadConfig() {
 	//If file opened correctly
 	if ($file) {
 		
+		$commentFlag = false; //Flag for signalling reading of comments
+		
 		//Read each line of file
 		while (($line = fgets($file)) !== false) {
 			
-			//If this line is not a comment
-			if (!comment($line)) {
-				echo 'no comment';
+			//If this line is not commented
+			if (!beginningOfComment($line) && $commentFlag == false ) {
+				//Handle config setting
 			}
-			//Else handle comment line
+			//Else handle comments
 			else {
-				echo 'comment';
+				
+				//If this line ends the comment
+				if (endOfComment($line)) {
+					$commentFlag = false; //Reset comment flag
+				}
+				//Else comment does not end here
+				else {
+					$commentFlag = true; //So continue flag
+				}
+				
 			}
 			
 		}
 
-		fclose($file);
+		fclose($file); //Close file opened for reading
 		
 	}
 	//Else error opening file
 	else {
-		echo $GLOBALS['error'][0]; //Echo appropriate error message
+		echo $GLOBALS['error'][0]; //So echo appropriate error message
 	}
 	
 }
 
 //Function for Checking for a Comment at the Start of a Config File Line
-function comment($line) {
+function beginningOfComment($line) {
 	
 	//If the line begins with the comment operator
 	if (substr($line, 0, 2) == '/*') {
 		return true; //Return this line is a comment
 	}
+	//Else line does not begin comment
 	else {
-		return false; //Else return this line is not a comment
+		return false; //So return false
+	}
+	
+}
+
+//Function for Checking for the End of a Comment in a Config File Line
+function endOfComment($line) {
+	
+	//If the line ends with the comment operator
+	if (substr($line, strlen($line)-4, 2) == '*/') {
+		return true; //Return this line ends the comment
+	}
+	//Else line does not end comment
+	else {
+		return false; //So return false
 	}
 	
 }

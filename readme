@@ -3,3 +3,10 @@
 **
 ** Author:	Callan Heard
 */
+
+STRUCTURE
+- 'config' file in 'assets' must not be moved or renamed
+
+SYNTAX
+Comments:
+- Config file comments must begin with '/*' and end with '*/' exclusively
