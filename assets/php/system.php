@@ -30,13 +30,13 @@ function loadConfig() {
 	if ($file) {
 		
 		$commentFlag = false; //Flag for signalling reading of comments
-		
+
 		//Read each line of file
 		while (($line = fgets($file)) !== false) {
 			
 			//If this line is not commented
 			if (!beginningOfComment($line) && $commentFlag == false ) {
-				//Handle config setting
+				$config[getMapping('key', $line)] = getMapping('value', $line); //Add config setting to global array
 			}
 			//Else handle comments
 			else {
@@ -74,6 +74,19 @@ function beginningOfComment($line) {
 	//Else line does not begin comment
 	else {
 		return false; //So return false
+	}
+	
+}
+
+//Function for Separating a Config File Line into Mapping Identifiers
+function getMapping($type, $line) {
+
+	$parts = explode('=', $line); //Separate parts of the setting string
+	
+	//Return correct value based on type of mapping identifier required
+	switch ($type) {
+		case 'key'		: return trim($parts[1]); //Return mapping key
+		case 'value'	: return trim($parts[0]); //Return mapping value
 	}
 	
 }
