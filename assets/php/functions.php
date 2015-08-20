@@ -15,8 +15,6 @@ function loadErrors() {
 //Function for Loading Contents of Config Settings into System
 function loadConfig() {
 	
-	global $config; //Reference global config array
-	
 	$file = fopen('../config', "r"); //Attempt to open config file
 	
 	//If file opened correctly
@@ -32,7 +30,7 @@ function loadConfig() {
 		
 				//If this line is not commented
 				if (!beginningOfComment($line) && $commentFlag == false ) {
-					$config[getMapping('key', $line)] = getMapping('value', $line); //Add config setting to global array
+					$GLOBALS['config'][getMapping('key', $line)] = getMapping('value', $line); //Add config setting to global array
 				}
 				//Else handle comments
 				else {
@@ -60,6 +58,9 @@ function loadConfig() {
 		echo $GLOBALS['error'][0]; //So echo appropriate error message
 	}
 	
+	//Assign base directory value
+	$GLOBALS['config']['directory'] = $_SERVER['DOCUMENT_ROOT'].'/'.$GLOBALS['config']['source'].'/'.$GLOBALS['config']['subfolders'];
+	
 }
 
 //Function for Checking for a Comment at the Start of a Config File Line
@@ -83,8 +84,8 @@ function getMapping($type, $line) {
 	
 	//Return correct value based on type of mapping identifier required
 	switch ($type) {
-		case 'key'		: return trim($parts[1]); //Return mapping key
-		case 'value'	: return trim($parts[0]); //Return mapping value
+		case 'key'		: return trim($parts[0]); //Return mapping key
+		case 'value'	: return trim($parts[1]); //Return mapping value
 	}
 	
 }
@@ -100,6 +101,29 @@ function endOfComment($line) {
 	else {
 		return false; //So return false
 	}
+	
+}
+
+//Read-Only Variable for Style Sheet Markup
+function get($request) {
+	
+	$directory	= $GLOBALS['config']['directory'].'/'.$GLOBALS['config'][$request];
+	$content	= '';
+	
+	foreach(scandir($directory) as $value) {
+		
+		if ($value !== '.' && $value !== '..') {
+			
+			$url = $directory."/".$value;
+			
+			if ($request == 'styles')	$content .= "<link rel=\"stylesheet\" type=\"text/css\" href=\"".$url."\" />\n";
+			if ($request == 'scripts')	$content .= "<script src=\"".$url."\"></script>\n";
+			
+		}
+		
+	}
+	
+	return $content;
 	
 }
 ?>

@@ -11,5 +11,4 @@ $config	= array(); //Global array for storing config settings
 
 loadErrors(); //Prepare global errors array for use
 loadConfig(); //Read contents of config settings into system
-
 ?>
