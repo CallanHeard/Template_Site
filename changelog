@@ -2,11 +2,16 @@
 ** Change Log for Template Site
 **
 ** Version:	0.2.1
+** Version:	0.3.1
 */
 
 20.08.15 11:20:
 Minor Change to Config File
 - Update to notify that filename must not be changed
+
+20.08.15 11:00:
+System Functionality Begun
+- system.php file created with basic errors and skeleton code for reading config file
 
 20.08.15 10:20:
 Directory Structure Created
