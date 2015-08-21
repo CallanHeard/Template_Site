@@ -1,8 +1,12 @@
 /*
 ** Change Log for Template Site
 **
-** Version:	1.0.1
+** Version:	1.1.1
 */
+
+21.08.15 10:28:
+Minor Feature Update
+- Added ability to change HTML language and character set in 'config.file'
 
 21.08.15 10:17:
 Minor Updates to 'read.me'

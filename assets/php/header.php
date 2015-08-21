@@ -4,9 +4,9 @@
 */
 ?>
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="<?=$GLOBALS['config']['language']?>">
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="<?=$GLOBALS['config']['charset']?>" />
 		<title><?=$title?></title>
 		<?=get('styles')?>
 		<?=get('scripts')?>

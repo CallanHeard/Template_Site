@@ -15,6 +15,11 @@ system		= php
 /***************************/
 
 /* Structural Element Settings */
-header		= header.php
-footer		= footer.php
+header	= header.php
+footer	= footer.php
 /*******************************/
+
+/* Page Settings */
+language	= en
+charset		= utf-8
+/*****************/
