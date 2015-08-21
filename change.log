@@ -1,8 +1,11 @@
 /*
 ** Change Log for Template Site
 **
-** Version:	0.5.6
+** Version:	0.6.6
 */
+
+21.08.15 09:59:
+Changed basic file names to avoid conflicts
 
 20.08.15 18:24:
 Major Site Functionality Added
