@@ -15,7 +15,7 @@ function loadErrors() {
 //Function for Loading Contents of Config Settings into System
 function loadConfig() {
 	
-	$file = fopen('../config', "r"); //Attempt to open config file
+	$file = fopen(find('config.file'), "r"); //Attempt to open config file
 	
 	//If file opened correctly
 	if ($file) {
@@ -107,23 +107,27 @@ function endOfComment($line) {
 //Read-Only Variable for Style Sheet Markup
 function get($request) {
 	
-	$directory	= $GLOBALS['config']['directory'].'/'.$GLOBALS['config'][$request];
-	$content	= '';
+	//Method Variables
+	$directory	= $GLOBALS['config']['directory'].'/'.$GLOBALS['config'][$request];	//Directory to search for files
+	$content	= '';																//Content to be returned
 	
+	//Scan directory for all files
 	foreach(scandir($directory) as $value) {
 		
+		//If value is not this directory or parent ('.' and '..')
 		if ($value !== '.' && $value !== '..') {
 			
-			$url = $directory."/".$value;
+			$url = $directory."/".$value; //Store url to this value
 			
-			if ($request == 'styles')	$content .= "<link rel=\"stylesheet\" type=\"text/css\" href=\"".$url."\" />\n";
-			if ($request == 'scripts')	$content .= "<script src=\"".$url."\"></script>\n";
+			//Generate markup for the file found and add to content being returned
+			if ($request == 'styles')	$content .= "<link rel=\"stylesheet\" type=\"text/css\" href=\"".$url."\" />\n";	//Markup for style sheets
+			if ($request == 'scripts')	$content .= "<script src=\"".$url."\"></script>\n";									//Markup for scripts
 			
 		}
 		
 	}
 	
-	return $content;
+	return $content; //Return generate content
 	
 }
 ?>

@@ -9,14 +9,12 @@
 /* Directory Name Settings */
 source		= Template_Site
 subfolders	= assets
-images		= img
 scripts		= scripts
 styles		= styles
 system		= php
 /***************************/
 
 /* Structural Element Settings */
-system_file	= system.php
 header		= header.php
 footer		= footer.php
 /*******************************/

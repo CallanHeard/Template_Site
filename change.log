@@ -1,8 +1,13 @@
 /*
 ** Change Log for Template Site
 **
-** Version:	0.6.6
+** Version:	1.0.0
 */
+
+21.08.15 10:10:
+Full System Functionality Complete
+- Index file generates fully valid HTML code for template webpage
+- Updates to markup simply require adding stylesheets/script files into corresponding folders
 
 21.08.15 09:59:
 Changed basic file names to avoid conflicts

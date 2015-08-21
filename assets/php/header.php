@@ -2,8 +2,6 @@
 /*
 ** Header File for Top of Webpages
 */
-
-require 'system.php'; //Include initial site functionality
 ?>
 <!DOCTYPE html>
 <html lang="en-GB">

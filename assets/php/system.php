@@ -1,6 +1,8 @@
 <?php
 /*
 ** Main System File for Site Functionality
+**
+** IMPORTANT: Do not move/rename!
 */
 
 require 'functions.php'; //Retrieve system functions
