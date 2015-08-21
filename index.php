@@ -21,8 +21,9 @@ function find($request) {
 
 }
 
-$title = 'Index'; //Set title of page
 require find('system.php'); //Retrieve system code
+
+$title = 'Index'; //Set title of page
 require $GLOBALS['config']['directory'].'/'.$GLOBALS['config']['system'].'/'.$GLOBALS['config']['header']; //Retrieve page header
 ?>
 

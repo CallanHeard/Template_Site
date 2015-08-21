@@ -1,8 +1,12 @@
 /*
 ** Change Log for Template Site
 **
-** Version:	1.1.1
+** Version:	1.1.2
 */
+
+21.08.15 10:36:
+Added Default Page Title
+- Avoid 'notice: undefined variable' when a title is not specified
 
 21.08.15 10:28:
 Minor Feature Update
